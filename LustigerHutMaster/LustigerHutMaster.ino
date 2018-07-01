@@ -37,6 +37,9 @@ void setup()
 	strip.begin();
 	strip.show(); // Initialize all pixels to 'off'
 
+	/* zum Testen der Bluetoothverbindung ohne zusaetzliche hardware */
+	pinMode(LED_BUILTIN, OUTPUT);
+	lightLED(1000);
 }
 
 void loop()
@@ -46,11 +49,10 @@ void loop()
 	{
 		pingSlave();		
 	}
-
-	// millisekunden
+	
 	if (isResponseReceived())
 	{
-		enableReconnectEffect();
+		lightLED(100);		
 		if ((millis() - slaveLastSeen) > RECONNECT_DETECT_INTERVAL)
 			slaveHasReconnected = true;
 		slaveLastSeen = millis();		
@@ -63,13 +65,23 @@ void loop()
 
 	if (isReconnectEffectEnabled())
 	{
-		police.runFlashlight(millis());
+		lightLED(1000);
+		lightLED(200);
+		police.runFlashlight(millis());				
 	}
 	else
 	{
 		rainbow.runRainbow(millis());
 	}
 	
+}
+
+void lightLED(int milliseconds)
+{
+	digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+	delay(milliseconds);                       // wait for a second
+	digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW	
+	delay(milliseconds);
 }
 
 bool isTimeForPing()
@@ -118,8 +130,8 @@ void enableReconnectEffect()
 
 bool isReconnectEffectEnabled()
 {
-	/*if ((millis() - reconnectEffectStartTime) > RECONNECT_EFFECT_TIME)
-		reconnectEffectEnabled = false;*/
+	if ((millis() - reconnectEffectStartTime) > RECONNECT_EFFECT_TIME)
+		reconnectEffectEnabled = false;
 
 	return reconnectEffectEnabled;
 }
