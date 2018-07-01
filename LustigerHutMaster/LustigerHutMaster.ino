@@ -98,7 +98,7 @@ bool isResponseReceived()
 		if (Serial.read() == RESPONSE_SYMBOL)
 			returnValue = true;
 
-	/*Serial.flush();*/
+	Serial.flush();
 
 	return returnValue;
 }
