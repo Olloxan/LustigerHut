@@ -1,4 +1,9 @@
 # gitignore of LustigerHutMaster
 
+# ignore files
+*.filters
+
 # ignore directories
 Debug/
+Release/
+__vm/

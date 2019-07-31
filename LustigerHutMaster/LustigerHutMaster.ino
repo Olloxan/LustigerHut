@@ -1,17 +1,25 @@
 #include <Adafruit_NeoPixel.h>
-#include "Rainbow.h"
-#include "Police.h"
+//#include "Rainbow.h"
+//#include "Police.h"
+#include "CircleDefect.h"
+#include "Flare.h"
 #ifdef __AVR__
 #include <avr/power.h>
 #endif
 
-#define PIN 6
-#define NUM_LEDS 16+17+18
-#define BRIGHTNESS 50
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+#define STRIP_PIN 6
+#define CIRCLE_PIN 4
+#define NUM_LEDS_STRIP 16+17+18
+#define NUM_LEDS_CIRCLE 32
+#define BRIGHTNESS_STRIP 30
+#define BRIGHTNESS_CIRCLE 70
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS_STRIP, STRIP_PIN, NEO_GRBW + NEO_KHZ800);
+Adafruit_NeoPixel circle = Adafruit_NeoPixel(NUM_LEDS_CIRCLE, CIRCLE_PIN, NEO_GRB + NEO_KHZ800);
 
-Rainbow rainbow(&strip);
-Police police(&strip);
+//Rainbow rainbow(&strip);
+Flare flare(&strip);
+CircleDefect circleDefect(&circle);
+//Police police(&strip); 
 
 const char PING_SYMBOL = '?';
 const char RESPONSE_SYMBOL = '!';
@@ -33,18 +41,21 @@ void setup()
 	Serial.begin(9600);
 
 	// End of trinket special code
-	strip.setBrightness(BRIGHTNESS);
+	strip.setBrightness(BRIGHTNESS_STRIP);
 	strip.begin();
 	strip.show(); // Initialize all pixels to 'off'
 
+	circle.setBrightness(BRIGHTNESS_CIRCLE);
+	circle.begin();
+	circle.show();
+	circleDefect.reset();
 	/* zum Testen der Bluetoothverbindung ohne zusaetzliche hardware */
 	pinMode(LED_BUILTIN, OUTPUT);
 	lightLED(1000);
 }
 
 void loop()
-{
-	
+{				
 	if (isTimeForPing())
 	{
 		pingSlave();		
@@ -67,11 +78,12 @@ void loop()
 	{
 		lightLED(1000);
 		lightLED(200);
-		police.runFlashlight(millis());				
+		//police.runFlashlight(millis());				
 	}
 	else
 	{
-		rainbow.runRainbow(millis());
+		flare.runFlare(millis());
+		circleDefect.runCircleDefect(millis());
 	}
 	
 }

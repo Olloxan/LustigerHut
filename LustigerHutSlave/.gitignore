@@ -1,5 +1,8 @@
 # gitgnore for LustigerHutSlave
+*.vcxproj.filters
 
 # ignore directories
 
 Debug/
+Release/
+__vm/
