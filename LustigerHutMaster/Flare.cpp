@@ -28,7 +28,7 @@ void Flare::flare() {
 	for (i = 0; i < _strip->numPixels(); i++) {		
 		_strip->setPixelColor(i, Wheel((j) & 255));
 	}
-	shutOffLEDs();
+	//shutOffLEDs();
 	_strip->show();
 }
 

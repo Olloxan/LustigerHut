@@ -1,3 +1,9 @@
+//########################################################
+// This is a mix of both, comunicating hats and a hat with
+// Glases on...
+//########################################################
+
+
 #include <Adafruit_NeoPixel.h>
 //#include "Rainbow.h"
 //#include "Police.h"
