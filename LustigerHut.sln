@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LustigerHutSlave", "Lustige
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConfigureHC05Master", "ConfigureHC05Master\ConfigureHC05Master.vcxproj", "{B0A6C9DA-3F2A-435B-8623-72D17FAC8F2F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BasicHat", "BasicHat\BasicHat.vcxproj", "{26C4EB22-079F-41E8-87A6-8C0896C0924B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -27,6 +29,10 @@ Global
 		{B0A6C9DA-3F2A-435B-8623-72D17FAC8F2F}.Debug|x86.Build.0 = Debug|Win32
 		{B0A6C9DA-3F2A-435B-8623-72D17FAC8F2F}.Release|x86.ActiveCfg = Release|Win32
 		{B0A6C9DA-3F2A-435B-8623-72D17FAC8F2F}.Release|x86.Build.0 = Release|Win32
+		{26C4EB22-079F-41E8-87A6-8C0896C0924B}.Debug|x86.ActiveCfg = Debug|Win32
+		{26C4EB22-079F-41E8-87A6-8C0896C0924B}.Debug|x86.Build.0 = Debug|Win32
+		{26C4EB22-079F-41E8-87A6-8C0896C0924B}.Release|x86.ActiveCfg = Release|Win32
+		{26C4EB22-079F-41E8-87A6-8C0896C0924B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
