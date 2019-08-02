@@ -50,18 +50,6 @@ uint32_t Flare::Wheel(byte WheelPos) {
 	}
 }
 
-void Flare::shutOffLEDs()
-{
-	_strip->setPixelColor(20, _strip->Color(0,0,0));
-	_strip->setPixelColor(21, _strip->Color(0, 0, 0));
-	_strip->setPixelColor(23, _strip->Color(0, 0, 0));
-	_strip->setPixelColor(24, _strip->Color(0, 0, 0));
-	_strip->setPixelColor(37, _strip->Color(0, 0, 0));
-	_strip->setPixelColor(38, _strip->Color(0, 0, 0));
-	_strip->setPixelColor(40, _strip->Color(0, 0, 0));
-	_strip->setPixelColor(41, _strip->Color(0, 0, 0));
-}
-
 uint8_t Flare::rand(uint8_t color)
 {
 	int temp = random(-20, 20) + (int)color;

@@ -16,7 +16,6 @@ private:
 	int _delay;
 
 	void flare();
-	uint32_t Wheel(byte WheelPos);
-	void shutOffLEDs();
+	uint32_t Wheel(byte WheelPos);	
 	uint8_t rand(uint8_t color);
 };
